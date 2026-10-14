@@ -1,0 +1,307 @@
+# My-first-website-<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#166534">
+  <title>Smart Gram AI | Smart Village</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="#home">
+      <span class="logo">🌱</span>
+      <span>Smart Gram AI<small>Digital Village, Better Future</small></span>
+    </a>
+
+    <button id="languageBtn" class="language-btn">मराठी</button>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <span class="eyebrow" data-en="WELCOME TO YOUR SMART VILLAGE"
+          data-mr="आपल्या स्मार्ट गावात स्वागत आहे">
+          WELCOME TO YOUR SMART VILLAGE
+        </span>
+
+        <h1 data-en="A Smarter Village Starts Here"
+          data-mr="स्मार्ट गावाची सुरुवात इथून">
+          A Smarter Village Starts Here
+        </h1>
+
+        <p data-en="Digital services, smart farming and learning opportunities for everyone."
+          data-mr="प्रत्येकासाठी डिजिटल सेवा, स्मार्ट शेती आणि शिक्षणाच्या संधी.">
+          Digital services, smart farming and learning opportunities for everyone.
+        </p>
+
+        <a href="#services" class="primary-btn"
+          data-en="Explore Services ↓" data-mr="सेवा पहा ↓">
+          Explore Services ↓
+        </a>
+      </div>
+      <div class="hero-art" aria-hidden="true">🏡🌾🌳</div>
+    </section>
+
+    <section class="weather-card">
+      <div>
+        <span class="muted" data-en="Village Weather" data-mr="गावातील हवामान">
+          Village Weather
+        </span>
+        <h2>🌤️ <span id="weatherText">Demo weather</span></h2>
+        <p class="muted" data-en="Sample information — not a live forecast."
+          data-mr="नमुना माहिती — हे थेट हवामान अंदाज नाही.">
+          Sample information — not a live forecast.
+        </p>
+      </div>
+      <div class="weather-icon">🌱</div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="section-heading">
+        <span class="eyebrow" data-en="OUR SERVICES" data-mr="आमच्या सेवा">
+          OUR SERVICES
+        </span>
+        <h2 data-en="Everything in One Place"
+          data-mr="सर्व सेवा एकाच ठिकाणी">
+          Everything in One Place
+        </h2>
+      </div>
+
+      <div class="service-grid">
+        <a class="service-card" href="#farmer">
+          <span class="service-icon">🌾</span>
+          <h3 data-en="Farmer Assistant" data-mr="शेतकरी सहाय्य">
+            Farmer Assistant
+          </h3>
+          <p data-en="Crop tips and farming guidance"
+            data-mr="पीक टिप्स आणि शेती मार्गदर्शन">
+            Crop tips and farming guidance
+          </p>
+          <span class="card-link" data-en="Explore →" data-mr="पुढे पहा →">
+            Explore →
+          </span>
+        </a>
+
+        <a class="service-card" href="#complaints">
+          <span class="service-icon">🏘️</span>
+          <h3 data-en="Village Services" data-mr="ग्रामसेवा">
+            Village Services
+          </h3>
+          <p data-en="Report village problems"
+            data-mr="गावातील समस्या नोंदवा">
+            Report village problems
+          </p>
+          <span class="card-link" data-en="Explore →" data-mr="पुढे पहा →">
+            Explore →
+          </span>
+        </a>
+
+        <a class="service-card" href="#learning">
+          <span class="service-icon">💻</span>
+          <h3 data-en="Digital Learning" data-mr="डिजिटल शिक्षण">
+            Digital Learning
+          </h3>
+          <p data-en="Learn essential digital skills"
+            data-mr="महत्त्वाची डिजिटल कौशल्ये शिका">
+            Learn essential digital skills
+          </p>
+          <span class="card-link" data-en="Explore →" data-mr="पुढे पहा →">
+            Explore →
+          </span>
+        </a>
+
+        <a class="service-card" href="#schemes">
+          <span class="service-icon">📋</span>
+          <h3 data-en="Government Schemes" data-mr="सरकारी योजना">
+            Government Schemes
+          </h3>
+          <p data-en="Find scheme information"
+            data-mr="सरकारी योजनांची माहिती मिळवा">
+            Find scheme information
+          </p>
+          <span class="card-link" data-en="Explore →" data-mr="पुढे पहा →">
+            Explore →
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section id="farmer" class="section panel">
+      <span class="eyebrow" data-en="SMART FARMING" data-mr="स्मार्ट शेती">
+        SMART FARMING
+      </span>
+      <h2 data-en="Farmer Assistant 🌱" data-mr="शेतकरी सहाय्य 🌱">
+        Farmer Assistant 🌱
+      </h2>
+      <p data-en="Select a crop to see sample farming tips."
+        data-mr="नमुना शेती टिप्स पाहण्यासाठी पीक निवडा.">
+        Select a crop to see sample farming tips.
+      </p>
+
+      <label for="cropSelect" data-en="Choose your crop"
+        data-mr="तुमचे पीक निवडा">Choose your crop</label>
+
+      <select id="cropSelect">
+        <option value="cotton">Cotton / कापूस</option>
+        <option value="soybean">Soybean / सोयाबीन</option>
+        <option value="wheat">Wheat / गहू</option>
+        <option value="pigeonpea">Pigeon pea / तूर</option>
+      </select>
+
+      <button id="cropBtn" class="primary-btn"
+        data-en="Get Farming Tips" data-mr="शेती टिप्स मिळवा">
+        Get Farming Tips
+      </button>
+
+      <div id="cropResult" class="result-box" aria-live="polite">
+        Choose a crop and press the button.
+      </div>
+
+      <p class="small-note"
+        data-en="Educational sample only. Follow local agricultural expert advice."
+        data-mr="ही शैक्षणिक नमुना माहिती आहे. स्थानिक कृषी तज्ज्ञांचा सल्ला घ्या.">
+        Educational sample only. Follow local agricultural expert advice.
+      </p>
+    </section>
+
+    <section id="complaints" class="section panel">
+      <span class="eyebrow" data-en="YOUR VOICE MATTERS"
+        data-mr="तुमचा आवाज महत्त्वाचा आहे">
+        YOUR VOICE MATTERS
+      </span>
+      <h2 data-en="Report a Village Problem"
+        data-mr="गावातील समस्या नोंदवा">
+        Report a Village Problem
+      </h2>
+
+      <form id="complaintForm">
+        <label for="residentName" data-en="Your Name" data-mr="तुमचे नाव">
+          Your Name
+        </label>
+        <input id="residentName" type="text" maxlength="60"
+          placeholder="Enter your name" required>
+
+        <label for="category" data-en="Problem Category"
+          data-mr="समस्येचा प्रकार">Problem Category</label>
+        <select id="category" required>
+          <option value="Water">Water / पाणी</option>
+          <option value="Road">Road / रस्ता</option>
+          <option value="Streetlight">Streetlight / पथदिवे</option>
+          <option value="Cleanliness">Cleanliness / स्वच्छता</option>
+          <option value="Other">Other / इतर</option>
+        </select>
+
+        <label for="description" data-en="Describe the Problem"
+          data-mr="समस्येचे वर्णन करा">Describe the Problem</label>
+        <textarea id="description" maxlength="500" rows="4"
+          placeholder="Write your problem here..." required></textarea>
+
+        <button type="submit" class="primary-btn"
+          data-en="Submit Complaint" data-mr="तक्रार नोंदवा">
+          Submit Complaint
+        </button>
+      </form>
+
+      <p id="complaintMessage" class="result-box" aria-live="polite"></p>
+
+      <h3 data-en="Saved Demo Complaints" data-mr="नोंदवलेल्या नमुना तक्रारी">
+        Saved Demo Complaints
+      </h3>
+      <div id="complaintList"></div>
+
+      <p class="small-note"
+        data-en="Demo only: complaints are saved in this browser, not sent to the Gram Panchayat."
+        data-mr="फक्त डेमो: तक्रारी या ब्राउझरमध्ये साठवल्या जातात; ग्रामपंचायतीकडे पाठवल्या जात नाहीत.">
+        Demo only: complaints are saved in this browser, not sent to the Gram Panchayat.
+      </p>
+    </section>
+
+    <section id="learning" class="section">
+      <div class="section-heading">
+        <span class="eyebrow" data-en="LEARN AND GROW"
+          data-mr="शिका आणि प्रगती करा">LEARN AND GROW</span>
+        <h2 data-en="Digital Skills for Everyone"
+          data-mr="सर्वांसाठी डिजिटल कौशल्ये">
+          Digital Skills for Everyone
+        </h2>
+      </div>
+
+      <div class="learning-list">
+        <article class="learning-item">
+          <span>📱</span>
+          <div>
+            <h3 data-en="Smartphone Basics" data-mr="स्मार्टफोनची मूलतत्त्वे">
+              Smartphone Basics
+            </h3>
+            <p data-en="Learn apps, settings and safe browsing."
+              data-mr="ॲप्स, सेटिंग्ज आणि सुरक्षित इंटरनेट वापर शिका.">
+              Learn apps, settings and safe browsing.
+            </p>
+          </div>
+        </article>
+
+        <article class="learning-item">
+          <span>🔐</span>
+          <div>
+            <h3 data-en="Cyber Safety" data-mr="सायबर सुरक्षा">
+              Cyber Safety
+            </h3>
+            <p data-en="Never share your OTP or banking PIN."
+              data-mr="तुमचा OTP किंवा बँकिंग PIN कोणालाही सांगू नका.">
+              Never share your OTP or banking PIN.
+            </p>
+          </div>
+        </article>
+
+        <article class="learning-item">
+          <span>⌨️</span>
+          <div>
+            <h3 data-en="Computer Basics" data-mr="कॉम्प्युटरची मूलतत्त्वे">
+              Computer Basics
+            </h3>
+            <p data-en="Learn typing, files and basic coding."
+              data-mr="टायपिंग, फाइल्स आणि बेसिक कोडिंग शिका.">
+              Learn typing, files and basic coding.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="schemes" class="section panel">
+      <span class="service-icon">🇮🇳</span>
+      <h2 data-en="Government Scheme Information"
+        data-mr="सरकारी योजनांची माहिती">
+        Government Scheme Information
+      </h2>
+      <p data-en="Use official portals to check eligibility and current application rules."
+        data-mr="पात्रता आणि अर्जाचे सध्याचे नियम तपासण्यासाठी अधिकृत संकेतस्थळे वापरा.">
+        Use official portals to check eligibility and current application rules.
+      </p>
+      <ul>
+        <li><a href="https://www.myscheme.gov.in/" target="_blank" rel="noopener noreferrer">myScheme — Government schemes</a></li>
+        <li><a href="https://mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">MahaDBT — Maharashtra schemes</a></li>
+        <li><a href="https://mahaagri.gov.in/" target="_blank" rel="noopener noreferrer">Maharashtra Agriculture Department</a></li>
+      </ul>
+      <p class="small-note"
+        data-en="Verify scheme details on the official portal. This student prototype does not process applications."
+        data-mr="योजनेची माहिती अधिकृत पोर्टलवर तपासा. हा विद्यार्थी प्रोटोटाइप अर्ज प्रक्रिया करत नाही.">
+        Verify scheme details on the official portal. This student prototype does not process applications.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>🌱 Smart Gram AI</p>
+    <p data-en="Technology for villages, opportunities for everyone."
+      data-mr="गावासाठी तंत्रज्ञान, सर्वांसाठी संधी.">
+      Technology for villages, opportunities for everyone.
+    </p>
+    <small>College Project Prototype | B.Tech CSE</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+  </html>
