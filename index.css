@@ -1,0 +1,439 @@
+/* Smart Gram AI - Responsive Design */
+
+:root {
+  --green: #166534;
+  --green-dark: #14532d;
+  --light-green: #dcfce7;
+  --page: #f5f8f3;
+  --white: #ffffff;
+  --text: #183324;
+  --muted: #647568;
+  --border: #dce7dc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--page);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--green);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 6%;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--green-dark);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.brand small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.logo {
+  font-size: 32px;
+}
+
+.language-btn {
+  border: 1px solid var(--green);
+  background: var(--white);
+  color: var(--green);
+  padding: 9px 13px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+}
+
+.hero {
+  margin-top: 28px;
+  padding: 44px;
+  border-radius: 22px;
+  background: linear-gradient(125deg, #14532d, #22a05b);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 640px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #249451;
+}
+
+.hero .eyebrow {
+  color: #dcfce7;
+}
+
+.hero h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.15;
+  margin: 12px 0;
+}
+
+.hero p {
+  max-width: 500px;
+  color: #e4f7e8;
+}
+
+.hero-art {
+  font-size: clamp(48px, 8vw, 100px);
+  white-space: nowrap;
+}
+
+.primary-btn {
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  background: var(--green);
+  color: white;
+  padding: 12px 18px;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hero .primary-btn {
+  background: white;
+  color: var(--green-dark);
+}
+
+.primary-btn:hover {
+  filter: brightness(0.93);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+.weather-card {
+  margin-top: 22px;
+  padding: 22px 26px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.weather-card h2 {
+  margin: 5px 0;
+  font-size: 23px;
+}
+
+.weather-icon {
+  font-size: 45px;
+}
+
+.muted,
+.small-note {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.section {
+  padding: 45px 0;
+}
+
+.section-heading {
+  margin-bottom: 22px;
+}
+
+.section-heading h2,
+.panel h2 {
+  margin: 7px 0 12px;
+  font-size: clamp(23px, 4vw, 32px);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.service-card {
+  background: white;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px #163b2012;
+}
+
+.service-icon {
+  display: inline-block;
+  font-size: 35px;
+}
+
+.service-card h3 {
+  font-size: 17px;
+  margin: 12px 0 5px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.card-link {
+  color: var(--green);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.panel {
+  padding: 28px;
+  margin-bottom: 24px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.panel > p {
+  color: var(--muted);
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 16px 0 7px;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd8cb;
+  border-radius: 9px;
+  background: white;
+  color: var(--text);
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.result-box {
+  margin-top: 18px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  white-space: pre-line;
+}
+
+#complaintMessage:empty {
+  display: none;
+}
+
+#complaintList {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.complaint-item {
+  padding: 13px;
+  background: #f8faf7;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+}
+
+.complaint-item p {
+  margin: 5px 0;
+}
+
+.complaint-item small {
+  color: var(--muted);
+}
+
+.learning-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.learning-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.learning-item > span {
+  font-size: 30px;
+}
+
+.learning-item h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.learning-item p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+footer {
+  text-align: center;
+  background: #123d26;
+  color: white;
+  padding: 28px 15px;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer small {
+  color: #d4ead8;
+}
+
+@media (max-width: 850px) {
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .learning-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 30px;
+  }
+
+  .hero-art {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    padding: 12px 4%;
+  }
+
+  .brand {
+    font-size: 16px;
+  }
+
+  .brand small {
+    font-size: 10px;
+  }
+
+  .logo {
+    font-size: 27px;
+  }
+
+  .container {
+    width: 92%;
+  }
+
+  .hero {
+    padding: 25px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .hero-art {
+    align-self: center;
+    font-size: 55px;
+  }
+
+  .weather-card {
+    padding: 18px;
+  }
+
+  .weather-card h2 {
+    font-size: 19px;
+  }
+
+  .service-grid {
+    gap: 10px;
+  }
+
+  .service-card {
+    padding: 15px;
+  }
+
+  .service-card h3 {
+    font-size: 15px;
+  }
+
+  .panel {
+    padding: 19px;
+  }
+
+  .section {
+    padding: 32px 0;
+  }
+}
