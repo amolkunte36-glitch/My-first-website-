@@ -1,0 +1,179 @@
+"use strict";
+
+// Smart Gram AI - JavaScript
+
+let currentLanguage = "en";
+
+const cropTips = {
+  cotton: {
+    en: "Cotton: Monitor crop growth regularly. Check soil moisture, inspect plants for pests, and seek local agricultural guidance when needed.",
+    mr: "कापूस: पिकाची नियमित पाहणी करा. जमिनीतील ओलावा तपासा, किडींची लक्षणे पाहा आणि गरजेनुसार स्थानिक कृषी तज्ज्ञांचा सल्ला घ्या."
+  },
+  soybean: {
+    en: "Soybean: Monitor drainage and soil moisture. Inspect plants regularly and follow locally recommended crop protection practices.",
+    mr: "सोयाबीन: शेतातील पाण्याचा निचरा आणि जमिनीतील ओलावा तपासा. पिकाची नियमित पाहणी करा आणि स्थानिक शिफारशींनुसार पीक संरक्षण करा."
+  },
+  wheat: {
+    en: "Wheat: Follow the recommended sowing schedule for your area. Monitor soil moisture and inspect the crop for disease symptoms.",
+    mr: "गहू: तुमच्या भागासाठी शिफारस केलेल्या वेळेत पेरणी करा. जमिनीतील ओलावा तपासा आणि पिकावर रोगांची लक्षणे दिसतात का ते पाहा."
+  },
+  pigeonpea: {
+    en: "Pigeon pea (Tur): Ensure proper drainage, monitor plant growth, and seek expert advice if pests or disease symptoms appear.",
+    mr: "तूर: शेतात पाण्याचा योग्य निचरा होईल याची काळजी घ्या. पिकाची वाढ तपासा आणि किडी किंवा रोगांची लक्षणे दिसल्यास तज्ज्ञांचा सल्ला घ्या."
+  }
+};
+
+// Change page language
+const languageBtn = document.getElementById("languageBtn");
+
+function updateLanguage() {
+  document.documentElement.lang = currentLanguage === "mr" ? "mr" : "en";
+
+  document.querySelectorAll("[data-en][data-mr]").forEach((element) => {
+    element.textContent = element.dataset[currentLanguage];
+  });
+
+  languageBtn.textContent = currentLanguage === "en" ? "मराठी" : "English";
+
+  document.getElementById("residentName").placeholder =
+    currentLanguage === "en" ? "Enter your name" : "तुमचे नाव लिहा";
+
+  document.getElementById("description").placeholder =
+    currentLanguage === "en"
+      ? "Write your problem here..."
+      : "तुमची समस्या येथे लिहा...";
+
+  showCropTips();
+  renderComplaints();
+}
+
+languageBtn.addEventListener("click", () => {
+  currentLanguage = currentLanguage === "en" ? "mr" : "en";
+  updateLanguage();
+});
+
+// Farming tips
+function showCropTips() {
+  const crop = document.getElementById("cropSelect").value;
+  const message = cropTips[crop][currentLanguage];
+
+  document.getElementById("cropResult").textContent = message;
+}
+
+document.getElementById("cropBtn").addEventListener("click", showCropTips);
+
+document.getElementById("cropSelect").addEventListener("change", () => {
+  showCropTips();
+});
+
+// Local demo storage
+const STORAGE_KEY = "smartGramAI_demo_complaints";
+
+function readComplaints() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const data = saved ? JSON.parse(saved) : [];
+    return Array.isArray(data) ? data : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveComplaints(complaints) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(complaints));
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+// Submit a village complaint
+document.getElementById("complaintForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("residentName").value.trim();
+  const category = document.getElementById("category").value;
+  const description = document.getElementById("description").value.trim();
+  const message = document.getElementById("complaintMessage");
+
+  if (!name || !description) {
+    message.textContent =
+      currentLanguage === "en"
+        ? "Please fill in all required fields."
+        : "कृपया सर्व आवश्यक माहिती भरा.";
+    return;
+  }
+
+  const complaints = readComplaints();
+
+  const newComplaint = {
+    id: Date.now(),
+    name: name,
+    category: category,
+    description: description,
+    date: new Date().toLocaleDateString()
+  };
+
+  complaints.unshift(newComplaint);
+
+  if (!saveComplaints(complaints)) {
+    message.textContent =
+      currentLanguage === "en"
+        ? "Could not save. Please check your browser settings."
+        : "माहिती साठवता आली नाही. ब्राउझर सेटिंग्ज तपासा.";
+    return;
+  }
+
+  message.textContent =
+    currentLanguage === "en"
+      ? "Demo complaint saved in this browser successfully!"
+      : "नमुना तक्रार या ब्राउझरमध्ये यशस्वीपणे साठवली!";
+
+  document.getElementById("complaintForm").reset();
+  renderComplaints();
+});
+
+// Show saved complaints safely
+function renderComplaints() {
+  const list = document.getElementById("complaintList");
+  list.replaceChildren();
+
+  const complaints = readComplaints();
+
+  if (complaints.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "muted";
+    empty.textContent =
+      currentLanguage === "en"
+        ? "No complaints saved yet."
+        : "अजून कोणतीही तक्रार साठवलेली नाही.";
+    list.appendChild(empty);
+    return;
+  }
+
+  complaints.forEach((complaint) => {
+    const card = document.createElement("article");
+    card.className = "complaint-item";
+
+    const title = document.createElement("strong");
+    title.textContent = complaint.category;
+
+    const details = document.createElement("p");
+    details.textContent = complaint.description;
+
+    const info = document.createElement("small");
+    info.textContent =
+      (currentLanguage === "en" ? "Submitted by: " : "नोंद करणारे: ") +
+      complaint.name + " | " + complaint.date;
+
+    card.append(title, details, info);
+    list.appendChild(card);
+  });
+}
+
+// Initial page setup
+showCropTips();
+renderComplaints();
+
+console.log("Smart Gram AI prototype is ready!");
